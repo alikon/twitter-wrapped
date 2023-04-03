@@ -2,7 +2,7 @@
 
 # Import standard libraries
 #import logging
-
+import datetime
 # Import 3rd party libraries
 import streamlit as st
 import streamlit.components.v1 as components
@@ -48,6 +48,14 @@ st.markdown(
         Generate your and other people's **Twitter Wrapped from 2020** - an overview of a Twitter account's most liked Tweet authors for this year (inspired by [Spotify Wrapped](https://spotify.com/wrapped)). You can find the code for this mini-app on [GitHub](https://github.com/kinosal/twitter-wrapped) and the author on [Twitter](https://twitter.com/kinosal).
     """
 )
+datefrom = st.date_input(
+    "From ",
+    datetime.date(2019, 7, 6))
+
+dateto = st.date_input(
+    "To ",
+    datetime.date(2023, 4, 3))
+st.write('From ', datefrom, ' to ', dateto)
 account = st.text_input(label="Twitter account handle").replace("@", "")
 if account:
    # logging.info(f"Account: {account}")
