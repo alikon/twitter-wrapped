@@ -56,10 +56,12 @@ dateto = st.date_input(
     "To ",
     datetime.date(2023, 4, 3))
 st.write('From ', datefrom, ' to ', dateto)
+da = datefrom.strftime('%F')
+to = dateto.strftime('%F')
 account = st.text_input(label="Twitter account handle").replace("@", "")
 if account:
    # logging.info(f"Account: {account}")
-    top_authors = top_authors(account=account, da=datefrom, to=dateto)
+    top_authors = top_authors(account=account, da=da, to=to)
     if top_authors:
         st.markdown("""---""")
         st.markdown(
