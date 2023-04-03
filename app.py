@@ -45,7 +45,7 @@ st.write(
 st.title("Twitter Wrapped")
 st.markdown(
     """
-        Generate your and other people's **Twitter Wrapped 2022** - an overview of a Twitter account's most liked Tweet authors for this year (inspired by [Spotify Wrapped](https://spotify.com/wrapped)). You can find the code for this mini-app on [GitHub](https://github.com/kinosal/twitter-wrapped) and the author on [Twitter](https://twitter.com/kinosal).
+        Generate your and other people's **Twitter Wrapped from 2020** - an overview of a Twitter account's most liked Tweet authors for this year (inspired by [Spotify Wrapped](https://spotify.com/wrapped)). You can find the code for this mini-app on [GitHub](https://github.com/kinosal/twitter-wrapped) and the author on [Twitter](https://twitter.com/kinosal).
     """
 )
 account = st.text_input(label="Twitter account handle").replace("@", "")
@@ -56,7 +56,7 @@ if account:
         st.markdown("""---""")
         st.markdown(
             f"""
-                **#TwitterWrapped 2022**\n
+                **#TwitterWrapped from 2020**\n
                 Top authors for [@{account}](https://twitter.com/{account})
             """
         )
