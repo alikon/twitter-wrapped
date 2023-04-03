@@ -4,7 +4,7 @@
 import os
 from datetime import datetime
 import pytz
-import logging
+# import logging
 
 # Import from 3rd party libraries
 import streamlit as st
@@ -42,15 +42,15 @@ class Twitter:
                 max_id=max_id,
             )
         except tweepy.errors.NotFound as e:
-            logging.error(str(e).split("\n")[0])
+            # logging.error(str(e).split("\n")[0])
             st.error("Account not found")
             return []
         except tweepy.errors.Unauthorized as e:
-            logging.error(str(e).split("\n")[0])
+            # logging.error(str(e).split("\n")[0])
             st.error("Unauthorized")
             return []
         except Exception as e:
-            logging.error(e)
+            # logging.error(e)
             return []
 
     def fetch_all_likes_since(self, since: str, until: str) -> list:
@@ -70,7 +70,7 @@ class Twitter:
                 likes.extend(response)
                 response_length = len(response)
         except Exception as e:
-            logging.error(e)
+           # logging.error(e)
 
         return [
             like

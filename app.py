@@ -1,7 +1,7 @@
 """Streamlit app."""
 
 # Import standard libraries
-import logging
+#import logging
 
 # Import 3rd party libraries
 import streamlit as st
@@ -11,7 +11,7 @@ import streamlit.components.v1 as components
 import twitter as twi
 
 # Configure logger
-logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO, force=True)
+#logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO, force=True)
 
 
 # Define functions
@@ -20,7 +20,7 @@ def top_authors(account: str) -> list:
     twitter = twi.Twitter(account=account)
     likes = twitter.fetch_all_likes_since(since="2022-01-01", until="2022-12-31")
     if likes:
-        logging.info(f"Likes: {len(likes)}")
+       # logging.info(f"Likes: {len(likes)}")
         return twitter.get_liked_authors(likes=likes, number=5)
     return []
 
@@ -50,7 +50,7 @@ st.markdown(
 )
 account = st.text_input(label="Twitter account handle").replace("@", "")
 if account:
-    logging.info(f"Account: {account}")
+   # logging.info(f"Account: {account}")
     top_authors = top_authors(account=account)
     if top_authors:
         st.markdown("""---""")
@@ -72,7 +72,7 @@ if account:
         cols[1].markdown(
             """Made with [twitter-likes.streamlit.app](https://twitter-likes.streamlit.app)"""
         )
-        logging.info(f"Top authors: {', '.join([a[0][0] for a in top_authors])}")
+       # logging.info(f"Top authors: {', '.join([a[0][0] for a in top_authors])}")
 
         st.markdown("""---""")
         formatted_top_authors = "\n".join(
