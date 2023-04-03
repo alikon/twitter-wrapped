@@ -18,7 +18,7 @@ import twitter as twi
 @st.experimental_memo(ttl=60*60*12, show_spinner=False)
 def top_authors(account: str) -> list:
     twitter = twi.Twitter(account=account)
-    likes = twitter.fetch_all_likes_since(since="2023-01-01", until="2023-04-03")
+    likes = twitter.fetch_all_likes_since(since="2020-01-01", until="2023-04-03")
     if likes:
        # logging.info(f"Likes: {len(likes)}")
         return twitter.get_liked_authors(likes=likes, number=5)
