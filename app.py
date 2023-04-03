@@ -21,7 +21,7 @@ def top_authors(account: str) -> list:
     likes = twitter.fetch_all_likes_since(since="2020-01-01", until="2023-04-03")
     if likes:
        # logging.info(f"Likes: {len(likes)}")
-        return twitter.get_liked_authors(likes=likes, number=5)
+        return twitter.get_liked_authors(likes=likes, number=10)
     return []
 
 
