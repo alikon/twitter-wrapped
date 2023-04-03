@@ -71,6 +71,7 @@ class Twitter:
                 response_length = len(response)
         except Exception as e:
            # logging.error(e)
+            st.error("Api error")
 
         return [
             like
