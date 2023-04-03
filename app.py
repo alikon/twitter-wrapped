@@ -16,12 +16,12 @@ import twitter as twi
 
 # Define functions
 @st.experimental_memo(ttl=60*60*12, show_spinner=False)
-def top_authors(account: str, da: str, to: str) -> list:
+def top_authors(account: str, da: str, to: str, top: int) -> list:
     twitter = twi.Twitter(account=account)
     likes = twitter.fetch_all_likes_since(since=da, until=to)
     if likes:
        # logging.info(f"Likes: {len(likes)}")
-        return twitter.get_liked_authors(likes=likes, number=10)
+        return twitter.get_liked_authors(likes=likes, number=top)
     return []
 
 
@@ -56,17 +56,20 @@ dateto = st.date_input(
     "To ",
     datetime.date(2023, 4, 3))
 st.write('From ', datefrom, ' to ', dateto)
+numero = st.slider('How many?', 1, 100, 1)
+st.write("Top ", numero, ' users')
+
 da = datefrom.strftime('%F')
 to = dateto.strftime('%F')
 account = st.text_input(label="Twitter account handle").replace("@", "")
 if account:
    # logging.info(f"Account: {account}")
-    top_authors = top_authors(account=account, da=da, to=to)
+    top_authors = top_authors(account=account, da=da, to=to, top=numero)
     if top_authors:
         st.markdown("""---""")
         st.markdown(
             f"""
-                **#TwitterWrapped from 2020**\n
+                **#TwitterWrapped from {da}**\n
                 Top authors for [@{account}](https://twitter.com/{account})
             """
         )
