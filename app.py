@@ -73,8 +73,6 @@ if account:
                 Top {numero} authors for [@{account}](https://twitter.com/{account}) from {da} to {to}
             """
         )
-        if not top_authors:
-            st.write(top_authors)
         for i, author in enumerate(top_authors):
             cols = st.columns([1, 2, 13])
             cols[0].markdown(f"**{i + 1}**")
@@ -100,5 +98,5 @@ if account:
             """,
             height=40,
         )
-
-        st.markdown("""---""")
+    else:
+      st.info("No liked found")
