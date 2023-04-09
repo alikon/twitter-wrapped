@@ -21,7 +21,7 @@ def top_authors(account: str, da: str, to: str, top: int) -> list:
     twitter = twi.Twitter(account=account)
     #likes = twitter.fetch_all_likes_since(since=da, until=to)
     likes = twitter.fetch_likes()
-    st.write(likes)
+    #st.write(likes)
     if likes:
         return twitter.get_liked_authors(likes=likes, number=top)
     return []
@@ -65,7 +65,7 @@ da = datefrom.strftime('%F')
 to = dateto.strftime('%F')
 
 if account:
-    check_data(account=account)
+   # check_data(account=account)
    # getch top authors
     top_authors = top_authors(account=account, da=da, to=to, top=numero)
     if top_authors:
