@@ -79,7 +79,7 @@ if account:
         #st.markdown("**Share your result**")
         components.html(
             f"""
-               <h3>Share your result  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="#TwitterMostLiked \n\n@{account}'s most liked accounts:\n{formatted_top_authors}\n\nMade with" data-url="https://github.com/alikon/twitter-wrapped" data-show-count="false">Tweet</a></h3><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+               <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="#TwitterMostLiked \n\n@{account}'s most liked accounts:\n{formatted_top_authors}\n\nMade with" data-url="https://github.com/alikon/twitter-wrapped" data-show-count="false">Share your result</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             """,
             height=40,
         )
