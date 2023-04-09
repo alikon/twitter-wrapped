@@ -56,9 +56,9 @@ datefrom = st.sidebar.date_input(
 dateto = st.sidebar.date_input(
     "To ",
     datetime.date(2023, 4, 3))
-st.write('From ', datefrom, ' to ', dateto)
+# st.write('From ', datefrom, ' to ', dateto)
 numero = st.sidebar.slider('Top Liked', 1, 100, 10)
-st.write("Top ", numero, ' users')
+# st.write("Top ", numero, ' users')
 
 da = datefrom.strftime('%F')
 to = dateto.strftime('%F')
@@ -70,8 +70,7 @@ if account:
         st.markdown("""---""")
         st.markdown(
             f"""
-                **#TwitterMostLiked from {da}**\n
-                Top authors for [@{account}](https://twitter.com/{account})
+                Top {numero} authors for [@{account}](https://twitter.com/{account}) from {da} to {to}
             """
         )
         for i, author in enumerate(top_authors):
