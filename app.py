@@ -73,7 +73,8 @@ if account:
                 Top {numero} authors for [@{account}](https://twitter.com/{account}) from {da} to {to}
             """
         )
-        st.write(len(top_authors))
+        if not top_authors:
+            st.write(top_authors)
         for i, author in enumerate(top_authors):
             cols = st.columns([1, 2, 13])
             cols[0].markdown(f"**{i + 1}**")
