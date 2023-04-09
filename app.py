@@ -48,7 +48,7 @@ datefrom = st.sidebar.date_input(
 
 dateto = st.sidebar.date_input(
     "To ",
-    datetime.mpw()
+    datetime.now())
 
 numero = st.sidebar.slider('Top Liked', 1, 100, 10)
 
