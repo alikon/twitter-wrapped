@@ -10,6 +10,12 @@ import twitter as twi
 
 # Define functions
 @st.cache_data(ttl=60*60*12, show_spinner=True)
+def check_data(account: str) -> list:
+    twitter = twi.Twitter(account=account)
+    st.write(twitter)
+    return []
+
+@st.cache_data(ttl=60*60*12, show_spinner=True)
 def top_authors(account: str, da: str, to: str, top: int) -> list:
     twitter = twi.Twitter(account=account)
     likes = twitter.fetch_all_likes_since(since=da, until=to)
