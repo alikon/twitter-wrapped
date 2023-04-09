@@ -48,11 +48,12 @@ st.markdown(
         Generate an overview of a Twitter account's most liked Tweet authors. You can find the code for this mini-app on [GitHub](https://github.com/alikon/twitter-wrapped) and the author on [Twitter](https://twitter.com/alikon).
     """
 )
-datefrom = st.date_input(
+account = st.text_input(label="Twitter account").replace("@", "")
+datefrom = st.sidebar.date_input(
     "From ",
     datetime.date(2019, 7, 6))
 
-dateto = st.date_input(
+dateto = st.sidebar.date_input(
     "To ",
     datetime.date(2023, 4, 3))
 st.write('From ', datefrom, ' to ', dateto)
@@ -61,7 +62,7 @@ st.write("Top ", numero, ' users')
 
 da = datefrom.strftime('%F')
 to = dateto.strftime('%F')
-account = st.text_input(label="Twitter account handle").replace("@", "")
+
 if account:
    # logging.info(f"Account: {account}")
     top_authors = top_authors(account=account, da=da, to=to, top=numero)
@@ -69,7 +70,7 @@ if account:
         st.markdown("""---""")
         st.markdown(
             f"""
-                **#TwitterWrapped from {da}**\n
+                **#TwitterMostLiked from {da}**\n
                 Top authors for [@{account}](https://twitter.com/{account})
             """
         )
@@ -94,7 +95,7 @@ if account:
         st.markdown("**Share your result**")
         components.html(
             f"""
-                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="#TwitterWrapped 2022\n\n@{account}'s most liked accounts:\n{formatted_top_authors}\n\nMade with" data-url="twitter-likes.streamlit.app" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="#TwitterMostLiked 2022\n\n@{account}'s most liked accounts:\n{formatted_top_authors}\n\nMade with" data-url="twitter-likes.streamlit.app" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             """,
             height=40,
         )
