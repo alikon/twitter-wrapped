@@ -80,8 +80,8 @@ if account:
             cols[2].markdown(
                 f"**[@{author[0][0]}](https://twitter.com/{author[0][0]})**"
             )
-        cols = st.columns([1, 15])
-        cols[0].image("twitter.png", width=25)
+        #cols = st.columns([1, 15])
+        #cols[0].image("twitter.png", width=25)
         # cols[1].markdown(
         #    """Made with [twitter-likes.streamlit.app](https://twitter-likes.streamlit.app)"""
         # )
