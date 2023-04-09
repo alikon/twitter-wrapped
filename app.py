@@ -1,7 +1,5 @@
 """Streamlit app."""
-
 # Import standard libraries
-#import logging
 import datetime
 # Import 3rd party libraries
 import streamlit as st
@@ -10,17 +8,12 @@ import streamlit.components.v1 as components
 # Import modules
 import twitter as twi
 
-# Configure logger
-#logging.basicConfig(format="%(asctime)s - %(message)s", level=logging.INFO, force=True)
-
-
 # Define functions
 @st.cache_data(ttl=60*60*12, show_spinner=True)
 def top_authors(account: str, da: str, to: str, top: int) -> list:
     twitter = twi.Twitter(account=account)
     likes = twitter.fetch_all_likes_since(since=da, until=to)
     if likes:
-       # logging.info(f"Likes: {len(likes)}")
         return twitter.get_liked_authors(likes=likes, number=top)
     return []
 
@@ -55,16 +48,15 @@ datefrom = st.sidebar.date_input(
 
 dateto = st.sidebar.date_input(
     "To ",
-    datetime.date(2023, 4, 3))
-# st.write('From ', datefrom, ' to ', dateto)
+    datetime.mpw()
+
 numero = st.sidebar.slider('Top Liked', 1, 100, 10)
-# st.write("Top ", numero, ' users')
 
 da = datefrom.strftime('%F')
 to = dateto.strftime('%F')
 
 if account:
-   # logging.info(f"Account: {account}")
+   # getch top authors
     top_authors = top_authors(account=account, da=da, to=to, top=numero)
     if top_authors:
         st.markdown("""---""")
@@ -80,13 +72,6 @@ if account:
             cols[2].markdown(
                 f"**[@{author[0][0]}](https://twitter.com/{author[0][0]})**"
             )
-        #cols = st.columns([1, 15])
-        #cols[0].image("twitter.png", width=25)
-        # cols[1].markdown(
-        #    """Made with [twitter-likes.streamlit.app](https://twitter-likes.streamlit.app)"""
-        # )
-        # logging.info(f"Top authors: {', '.join([a[0][0] for a in top_authors])}")
-
         st.markdown("""---""")
         formatted_top_authors = "\n".join(
             [f"{i+1}) @{a[0][0]} " for i, a in enumerate(top_authors)]
