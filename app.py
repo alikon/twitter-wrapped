@@ -94,7 +94,7 @@ if account:
         st.markdown("**Share your result**")
         components.html(
             f"""
-                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="#TwitterMostLiked 2022\n\n@{account}'s most liked accounts:\n{formatted_top_authors}\n\nMade with" data-url="https://github.com/alikon/twitter-wrapped" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="#TwitterMostLiked \n\n@{account}'s most liked accounts:\n{formatted_top_authors}\n\nMade with" data-url="https://github.com/alikon/twitter-wrapped" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             """,
             height=40,
         )
