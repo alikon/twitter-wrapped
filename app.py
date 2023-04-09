@@ -26,7 +26,7 @@ def top_authors(account: str, da: str, to: str, top: int) -> list:
 
 
 # Configure Streamlit page and state
-st.set_page_config(page_title="Twitter Wrapped", page_icon="🤖")
+st.set_page_config(page_title="Twitter Top Most Liked", page_icon=":shark:")
 
 # Force responsive layout for columns also on mobile
 st.write(
@@ -51,7 +51,7 @@ st.markdown(
 account = st.text_input(label="Twitter account").replace("@", "")
 datefrom = st.sidebar.date_input(
     "From ",
-    datetime.date(2019, 7, 6))
+    datetime.date(2023, 1, 1))
 
 dateto = st.sidebar.date_input(
     "To ",
@@ -82,10 +82,10 @@ if account:
             )
         cols = st.columns([1, 15])
         cols[0].image("twitter.png", width=25)
-        cols[1].markdown(
-            """Made with [twitter-likes.streamlit.app](https://twitter-likes.streamlit.app)"""
-        )
-       # logging.info(f"Top authors: {', '.join([a[0][0] for a in top_authors])}")
+        # cols[1].markdown(
+        #    """Made with [twitter-likes.streamlit.app](https://twitter-likes.streamlit.app)"""
+        # )
+        # logging.info(f"Top authors: {', '.join([a[0][0] for a in top_authors])}")
 
         st.markdown("""---""")
         formatted_top_authors = "\n".join(
@@ -94,7 +94,7 @@ if account:
         st.markdown("**Share your result**")
         components.html(
             f"""
-                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="#TwitterMostLiked 2022\n\n@{account}'s most liked accounts:\n{formatted_top_authors}\n\nMade with" data-url="twitter-likes.streamlit.app" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="#TwitterMostLiked 2022\n\n@{account}'s most liked accounts:\n{formatted_top_authors}\n\nMade with" data-url="https://github.com/alikon/twitter-wrapped" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             """,
             height=40,
         )
