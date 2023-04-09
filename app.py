@@ -12,7 +12,8 @@ import twitter as twi
 @st.cache_data(ttl=60*60*12, show_spinner=True)
 def check_data(account: str) -> list:
     twitter = twi.Twitter(account=account)
-    st.write(twitter)
+    if twitter:
+        st.write(twitter)
     return []
 
 @st.cache_data(ttl=60*60*12, show_spinner=True)
