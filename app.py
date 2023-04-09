@@ -42,10 +42,10 @@ st.write(
 )
 
 # Render Streamlit page
-st.title("Twitter Wrapped")
+st.title("Twitter Account Most Liked")
 st.markdown(
     """
-        Generate your and other people's **Twitter Wrapped from 2020** - an overview of a Twitter account's most liked Tweet authors for this year (inspired by [Spotify Wrapped](https://spotify.com/wrapped)). You can find the code for this mini-app on [GitHub](https://github.com/kinosal/twitter-wrapped) and the author on [Twitter](https://twitter.com/kinosal).
+        Generate an overview of a Twitter account's most liked Tweet authors. You can find the code for this mini-app on [GitHub](https://github.com/alikon/twitter-wrapped) and the author on [Twitter](https://twitter.com/alikon).
     """
 )
 datefrom = st.date_input(
@@ -56,7 +56,7 @@ dateto = st.date_input(
     "To ",
     datetime.date(2023, 4, 3))
 st.write('From ', datefrom, ' to ', dateto)
-numero = st.slider('How many?', 1, 100, 1)
+numero = st.slider('How many?', 5, 100, 1)
 st.write("Top ", numero, ' users')
 
 da = datefrom.strftime('%F')
