@@ -57,7 +57,7 @@ dateto = st.sidebar.date_input(
     "To ",
     datetime.date(2023, 4, 3))
 st.write('From ', datefrom, ' to ', dateto)
-numero = st.slider('How many?', 5, 100, 1)
+numero = st.sidebar.slider('Top Liked', 1, 100, 10)
 st.write("Top ", numero, ' users')
 
 da = datefrom.strftime('%F')
