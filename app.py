@@ -53,7 +53,7 @@ st.markdown(
         Generate an overview of a Twitter account's most liked Tweet authors. You can find the code for this mini-app on [GitHub](https://github.com/alikon/twitter-wrapped) and the author on [Twitter](https://twitter.com/alikon).
     """
 )
-account = st.text_input("Twitter account",'Twitter account').replace("@", "")
+account = st.text_input("Twitter account",'...twitter account').replace("@", "")
 datefrom = st.sidebar.date_input(
     "From ",
     datetime.date(2023, 1, 1))
