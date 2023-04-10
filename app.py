@@ -96,8 +96,6 @@ da = datefrom.strftime('%F')
 to = dateto.strftime('%F')
 
 if account:
-    ret = search()
-    st.write(ret)
    # getch top authors
     top_authors = top_authors(account=account, da=da, to=to, top=numero)
     if top_authors:
