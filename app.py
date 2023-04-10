@@ -19,9 +19,9 @@ def check_data(account: str) -> list:
 @st.cache_data(ttl=60*60*12, show_spinner=True)
 def top_authors(account: str, da: str, to: str, top: int) -> list:
     twitter = twi.Twitter(account=account)
-    #likes = twitter.fetch_all_likes_since(since=da, until=to)
-    likes = twitter.fetch_likes()
-    #st.write(likes)
+    likes = twitter.fetch_all_likes_since(since=da, until=to)
+    #likes = twitter.fetch_likes()
+    print(likes)
     if likes:
         return twitter.get_liked_authors(likes=likes, number=top)
     return []
