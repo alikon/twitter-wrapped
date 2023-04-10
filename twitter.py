@@ -45,7 +45,7 @@ class Twitter:
             st.error("Unauthorized")
             return []
         except Exception as e:
-            st.error("Error")
+            st.error(e)
             return []
 
     def fetch_likes(self, max_id: str = None) -> list:
