@@ -33,6 +33,21 @@ class Twitter:
         self.api = tweepy.API(auth)
         self.account = account.replace("@", "")
 
+    def fetch_retweet(self) ->list:
+        try:
+            return self.api.retweets_of_me()
+        except tweepy.errors.NotFound as e:
+            # logging.error(str(e).split("\n")[0])
+            st.error("Account not found")
+            return []
+        except tweepy.errors.Unauthorized as e:
+            # logging.error(str(e).split("\n")[0])
+            st.error("Unauthorized")
+            return []
+        except Exception as e:
+            st.error("Error")
+            return []
+
     def fetch_likes(self, max_id: str = None) -> list:
         """Fetch a batch of likes for an account."""
         try:

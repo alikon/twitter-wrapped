@@ -14,6 +14,10 @@ def check_data(account: str) -> list:
     twitter = twi.Twitter(account=account)
     if twitter:
         st.write(twitter)
+    twitter = twi.Twitter(account=account)
+    retweet = twitter.fetch_retweet()
+    if retweet:
+        return retweet
     return []
 
 @st.cache_data(ttl=60*60*12, show_spinner=True)
@@ -65,7 +69,8 @@ da = datefrom.strftime('%F')
 to = dateto.strftime('%F')
 
 if account:
-   # check_data(account=account)
+    ret = check_data(account=account)
+    st.write(ret)
    # getch top authors
     top_authors = top_authors(account=account, da=da, to=to, top=numero)
     if top_authors:
